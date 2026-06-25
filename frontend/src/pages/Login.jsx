@@ -33,26 +33,26 @@ function Login() {
         setIsLogin(true)
       }
     } catch (err) {
-      setError(err.response?.data?.message || 'Kuch gadbad ho gayi!')
+      setError(err.response?.data?.message || 'Something went wrong!')
     }
   }
 
   return (
     <div className="login-container">
-      <h2>{isLogin ? 'Login' : 'Register'}</h2>
+      <h2>{isLogin ? 'Welcome Back!' : 'Create Account'}</h2>
       {error && <p className="error">{error}</p>}
       <form onSubmit={handleSubmit}>
         {!isLogin && (
           <input
             type="text"
-            placeholder="Naam"
+            placeholder="FullName"
             value={name}
             onChange={(e) => setName(e.target.value)}
           />
         )}
         <input
           type="email"
-          placeholder="Email"
+          placeholder="EmailAdress"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
         />
@@ -63,11 +63,11 @@ function Login() {
           onChange={(e) => setPassword(e.target.value)}
         />
         <button type="submit">
-          {isLogin ? 'Login' : 'Register'}
+          {isLogin ? 'Login' : 'Sign Up'}
         </button>
       </form>
       <p onClick={() => setIsLogin(!isLogin)} className="toggle">
-        {isLogin ? 'Account nahi hai? Register karo' : 'Pehle se account hai? Login karo'}
+        {isLogin ? "Don't have an account? Sign Up" : 'Already have an account? Login'}
       </p>
     </div>
   )
