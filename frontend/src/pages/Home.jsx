@@ -47,17 +47,17 @@ function Home() {
       </nav>
 
       <div className="shorten-box">
-        <h2>Apna link chhota karo!</h2>
+        <h2>Shorten your link!</h2>
         <form onSubmit={handleShorten}>
           <input
             type="url"
-            placeholder="https://example.com/bahut/lamba/link"
+            placeholder="Paste Your Long Url"
             value={originalUrl}
             onChange={(e) => setOriginalUrl(e.target.value)}
             required
           />
           <button type="submit" disabled={loading}>
-            {loading ? 'Ban raha hai...' : 'Chhota karo!'}
+            {loading ? 'Shortening...' : 'Shorten URL'}
           </button>
         </form>
 
@@ -65,10 +65,10 @@ function Home() {
 
         {shortUrl && (
           <div className="result">
-            <p>Tera short link:</p>
+            <p>Your short link:</p>
             <a href={shortUrl} target="_blank" rel="noreferrer">{shortUrl}</a>
             <button onClick={() => navigator.clipboard.writeText(shortUrl)} className="copy-btn">
-              Copy karo
+              Copy Link
             </button>
           </div>
         )}
