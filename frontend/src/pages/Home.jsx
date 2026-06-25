@@ -19,7 +19,7 @@ function Home() {
     setError('')
     try {
       const res = await axios.post(
-        'http://localhost:5000/api/url/shorten',
+        'https://url-shortener-backend-z6tu.onrender.com/api/url/shorten',
         { originalUrl },
         { headers: { Authorization: `Bearer ${token}` } }
       )

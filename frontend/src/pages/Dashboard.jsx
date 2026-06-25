@@ -18,7 +18,7 @@ function Dashboard() {
   const fetchUrls = async () => {
     try {
       const res = await axios.get(
-        'http://localhost:5000/api/url/analytics',
+        'https://url-shortener-backend-z6tu.onrender.com/api/url/analytics',
         { headers: { Authorization: `Bearer ${token}` } }
       )
       setUrls(res.data)
@@ -58,14 +58,14 @@ function Dashboard() {
                   <a href={url.originalUrl} target="_blank" rel="noreferrer" className="original-url">
                     {url.originalUrl.length > 50 ? url.originalUrl.substring(0, 50) + '...' : url.originalUrl}
                   </a>
-                  <a href={`http://localhost:5000/${url.shortCode}`} target="_blank" rel="noreferrer" className="short-url">
-                    localhost:5000/{url.shortCode}
+                  <a href={`https://url-shortener-backend-z6tu.onrender.com/${url.shortCode}`} target="_blank" rel="noreferrer" className="short-url">
+                   url-shortener-backend-z6tu.onrender.com/{url.shortCode}
                   </a>
                 </div>
                 <div className="url-stats">
                   <span className="clicks">{url.clicks} clicks</span>
                   <button
-                    onClick={() => navigator.clipboard.writeText(`http://localhost:5000/${url.shortCode}`)}
+                    onClick={() => navigator.clipboard.writeText(`https://url-shortener-backend-z6tu.onrender.com/${url.shortCode}`)}
                     className="copy-btn"
                   >
                     Copy

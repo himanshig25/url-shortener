@@ -18,14 +18,14 @@ function Login() {
     e.preventDefault()
     try {
       if (isLogin) {
-        const res = await axios.post('http://localhost:5000/api/auth/login', {
+        const res = await axios.post('https://url-shortener-backend-z6tu.onrender.com/api/auth/login', {
           email,
           password
         })
         login(res.data.token, res.data.user)
         navigate('/')
       } else {
-        await axios.post('http://localhost:5000/api/auth/register', {
+        await axios.post('https://url-shortener-backend-z6tu.onrender.com/api/auth/register', {
           name,
           email,
           password
