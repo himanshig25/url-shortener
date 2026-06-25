@@ -34,7 +34,7 @@ function Dashboard() {
     navigate('/login')
   }
 
-  if (loading) return <p style={{ textAlign: 'center', marginTop: '50px' }}>Load ho raha hai...</p>
+  if (loading) return <p style={{ textAlign: 'center', marginTop: '50px' }}>Loading..</p>
 
   return (
     <div className="dashboard-container">
@@ -47,9 +47,9 @@ function Dashboard() {
       </nav>
 
       <div className="dashboard-content">
-        <h2>Tere saare links</h2>
+        <h2>Your links</h2>
         {urls.length === 0 ? (
-          <p className="no-urls">Abhi koi link nahi banaya — Home pe jao aur banao!</p>
+          <p className="no-urls">No link yet — Go to Home and create one!</p>
         ) : (
           <div className="urls-grid">
             {urls.map((url) => (
