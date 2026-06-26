@@ -9,6 +9,7 @@ function Home() {
   const [shortUrl, setShortUrl] = useState('')
   const [error, setError] = useState('')
   const [loading, setLoading] = useState(false)
+  const [copied, setCopied] = useState(false)
 
   const { token, logout } = useAuth()
   const navigate = useNavigate()
@@ -17,7 +18,8 @@ function Home() {
     e.preventDefault()
     setLoading(true)
     setError('')
-    if (originalUrl.length < 20) {
+    setShortUrl('')
+    if (originalUrl.length < 30) {
       setError('Your link is already too short!')
       setLoading(false)
       return
@@ -40,6 +42,12 @@ function Home() {
   const handleLogout = () => {
     logout()
     navigate('/login')
+  }
+
+  const handleCopy = () => {
+    navigator.clipboard.writeText(shortUrl)
+    setCopied(true)
+    setTimeout(() => setCopied(false), 2000)
   }
 
   return (
@@ -73,8 +81,8 @@ function Home() {
           <div className="result">
             <p>Your short link:</p>
             <a href={shortUrl} target="_blank" rel="noreferrer">{shortUrl}</a>
-            <button onClick={() => navigator.clipboard.writeText(shortUrl)} className="copy-btn">
-              Copy Link
+            <button onClick={handleCopy} className="copy-btn">
+              {copied ? '✅ Copied!' : 'Copy Link'}
             </button>
           </div>
         )}
