@@ -17,6 +17,12 @@ function Home() {
     e.preventDefault()
     setLoading(true)
     setError('')
+    if (originalUrl.length < 20) {
+      setError('Your link is already too short!')
+      setLoading(false)
+      return
+    }
+  
     try {
       const res = await axios.post(
         'https://url-shortener-backend-z6tu.onrender.com/api/url/shorten',
